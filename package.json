@@ -1,0 +1,30 @@
+{
+    "name": "shnootalk-vscode",
+    "displayName": "shnootalk-vscode",
+    "description": "VS Code extension for ShnooTalk",
+    "icon": "logo.png",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/RainingComputers/shnootalk-vscode"
+    },
+    "version": "0.0.1",
+    "engines": {
+        "vscode": "^1.58.0"
+    },
+    "categories": [
+        "Programming Languages"
+    ],
+    "contributes": {
+        "languages": [{
+            "id": "shnootalk",
+            "aliases": ["ShnooTalk", "shnootalk"],
+            "extensions": [".uhll",".shtk",".shnoo"],
+            "configuration": "./language-configuration.json"
+        }],
+        "grammars": [{
+            "language": "shnootalk",
+            "scopeName": "source.shnootalk",
+            "path": "./syntaxes/shnootalk.tmLanguage.json"
+        }]
+    }
+}
