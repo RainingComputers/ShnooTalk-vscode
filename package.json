@@ -1,6 +1,6 @@
 {
     "name": "shnootalk-vscode",
-    "displayName": "shnootalk-vscode",
+    "displayName": "ShnooTalk",
     "description": "VS Code extension for ShnooTalk",
     "icon": "logo.png",
     "repository": {
@@ -8,7 +8,7 @@
         "url": "https://github.com/RainingComputers/shnootalk-vscode"
     },
     "publisher": "RainingComputers",
-    "version": "0.0.1",
+    "version": "0.1.1",
     "engines": {
         "vscode": "^1.58.0"
     },
