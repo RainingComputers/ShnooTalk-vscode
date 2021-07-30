@@ -81,7 +81,7 @@
         },
         {
             "comment": "User defined type definition",
-            "begin": "\\b(enum|struct|def|class)\\s+([a-zA-Z_][a-zA-Z0-9_]*)\\b",
+            "begin": "\\b(struct|class)\\s+([a-zA-Z_][a-zA-Z0-9_]*)\\b",
             "end": "[\\{\\(;]",
             "beginCaptures": {
                 "1": {
@@ -91,6 +91,11 @@
                     "name": "entity.name.type.shnootalk"
                 }
             }
+        },
+        {
+            "comment": "Used defined enum and def",
+            "name": "storage.type.shnootalk",
+            "match": "\\b(enum|def)\\b"
         },
         {
             "comment": "Type",
