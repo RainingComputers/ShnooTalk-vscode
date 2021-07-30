@@ -15,16 +15,27 @@
         "Programming Languages"
     ],
     "contributes": {
-        "languages": [{
-            "id": "shnootalk",
-            "aliases": ["ShnooTalk", "shnootalk"],
-            "extensions": [".uhll",".shtk",".shnoo"],
-            "configuration": "./language-configuration.json"
-        }],
-        "grammars": [{
-            "language": "shnootalk",
-            "scopeName": "source.shnootalk",
-            "path": "./syntaxes/shnootalk.tmLanguage.json"
-        }]
+        "languages": [
+            {
+                "id": "shnootalk",
+                "aliases": [
+                    "ShnooTalk",
+                    "shnootalk"
+                ],
+                "extensions": [
+                    ".uhll",
+                    ".shtk",
+                    ".shnoo"
+                ],
+                "configuration": "./language-configuration.json"
+            }
+        ],
+        "grammars": [
+            {
+                "language": "shnootalk",
+                "scopeName": "source.shnootalk",
+                "path": "./syntaxes/shnootalk.tmLanguage.json"
+            }
+        ]
     }
 }

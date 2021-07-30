@@ -3,9 +3,12 @@
         "builtins",
         "elif",
         "println",
+        "shnoo",
         "shnootalk",
+        "shtk",
         "struct",
         "ubyte",
+        "uhll",
         "ulong",
         "ushort"
     ]
