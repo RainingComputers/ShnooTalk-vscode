@@ -10,7 +10,7 @@
         {
             "comment": "Keywords",
             "name": "keyword.control.shnootalk",
-            "match": "\\b(use|from|begin|end|if|elif|else|while|for|break|continue|return)\\b"
+            "match": "\\b(use|from|begin|end|if|elif|else|while|for|break|continue|return|void)\\b"
         },
         {
             "comment": "Built in functions",
@@ -102,14 +102,16 @@
             "match": "\\b(enum|def)\\b"
         },
         {
+            "comment": "Primitive type",
+            "match": "\\b(byte|ubyte|char|short|ushort|int|uint|long|ulong|float|double|bool|void)\\b",
+            "name": "entity.name.type.shnootalk"
+        },
+        {
             "comment": "Type",
             "begin": "(:|->)",
-            "end": "\\b(byte|ubyte|char|short|ushort|int|uint|long|ulong|float|double|bool|void)|([a-zA-Z_][a-zA-Z0-9_]*)\\b[^:]",
+            "end": "\\b([a-zA-Z_][a-zA-Z0-9_]*)\\b[^:]",
             "endCaptures": {
                 "1": {
-                    "name": "entity.name.type.shnootalk"
-                },
-                "2": {
                     "name": "entity.name.type.shnootalk"
                 }
             }
