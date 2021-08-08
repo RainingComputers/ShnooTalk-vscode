@@ -72,7 +72,7 @@
         {
             "comment": "'fn' keyword",
             "name": "storage.type.shnootalk",
-            "match": "\\bfn\\b"
+            "match": "\\b(fn|extfn)\\b"
         },
         {
             "comment": "Function name",
