@@ -10,7 +10,7 @@
         {
             "comment": "Keywords",
             "name": "keyword.control.shnootalk",
-            "match": "\\b(use|from|begin|end|if|elif|else|while|for|break|continue|return|void)\\b"
+            "match": "\\b(use|as|from|begin|end|if|elif|else|while|for|break|continue|return|void)\\b"
         },
         {
             "comment": "Built in functions",
