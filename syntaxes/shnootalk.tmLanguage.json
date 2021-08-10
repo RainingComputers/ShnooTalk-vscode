@@ -35,6 +35,21 @@
             ]
         },
         {
+            "comment": "Hex literal",
+            "name": "constant.numeric.integer.hexadecimal.shnootalk",
+            "match": "\\b(0x[a-fA-f0-9]+)\\b"
+        },
+        {
+            "comment": "Bin literal",
+            "name": "constant.numeric.shnootalk",
+            "match": "\\b(0b[0-1]+)\\b"
+        },
+        {
+            "comment": "Float literal",
+            "name": "constant.numeric.shnootalk",
+            "match": "\\b([0-9]*\\.[0-9]+)\\b"
+        },
+        {
             "comment": "Character literal",
             "name": "string.quoted.single.shnootalk",
             "match": "'\\\\?.'"
@@ -43,21 +58,6 @@
             "comment": "Integer literal",
             "name": "constant.numeric.shnootalk",
             "match": "([0-9]+)"
-        },
-        {
-            "comment": "Hex literal",
-            "name": "constant.numeric.shnootalk",
-            "match": "(0x[a-fA-f0-9]+)"
-        },
-        {
-            "comment": "Bin literal",
-            "name": "constant.numeric.shnootalk",
-            "match": "(0b[0-1]+)"
-        },
-        {
-            "comment": "Float literal",
-            "name": "constant.numeric.shnootalk",
-            "match": "([0-9]*\\.[0-9]+)"
         },
         {
             "comment": "Boolean literal",
