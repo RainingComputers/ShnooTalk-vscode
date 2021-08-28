@@ -13,11 +13,6 @@
             "match": "\\b(use|as|from|begin|end|if|elif|else|while|do|for|loop|break|continue|return|void)\\b"
         },
         {
-            "comment": "Built in functions",
-            "name": "support.function.shnootalk",
-            "match": "\\b(sizeof|print|println|input|exit)\\b"
-        },
-        {
             "comment": "Conditional operators",
             "name": "keyword.operator.shnootalk",
             "match": "\\b(and|or|not)\\b"
@@ -57,7 +52,7 @@
         {
             "comment": "Integer literal",
             "name": "constant.numeric.shnootalk",
-            "match": "([0-9]+)"
+            "match": "\\b([0-9]+)\\b"
         },
         {
             "comment": "Boolean literal",
@@ -102,9 +97,13 @@
             "match": "\\b(enum|def)\\b"
         },
         {
-            "comment": "Primitive type",
-            "match": "\\b(byte|ubyte|char|short|ushort|int|uint|long|ulong|float|double|bool|void)\\b",
-            "name": "entity.name.type.shnootalk"
+            "comment": "Module scope",
+            "match": "(->|:)?\\s*([a-zA-Z_][a-zA-Z0-9_]*)(::)",
+            "captures": {
+                "2": {
+                    "name": "entity.name.scope-resolution.shnootalk"
+                }
+            }
         },
         {
             "comment": "Type",
@@ -117,11 +116,11 @@
             }
         },
         {
-            "comment": "Module scope",
-            "match": "\\b([a-zA-Z_][a-zA-Z0-9_]*)\\s*(::)\\b",
+            "comment": "Cast type",
+            "match": "\\b([a-zA-Z_][a-zA-Z0-9_]*)\\s*(\\[\\]`|\\*`|`)",
             "captures": {
                 "1": {
-                    "name": "source.shnootalk"
+                    "name": "entity.name.type.shnootalk"
                 }
             }
         },
