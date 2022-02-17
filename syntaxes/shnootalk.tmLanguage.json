@@ -81,7 +81,7 @@
         {
             "comment": "User defined type definition",
             "begin": "\\b(struct|class)\\s+([a-zA-Z_][a-zA-Z0-9_]*)\\b",
-            "end": "[\\{\\(;]",
+            "end": "\\{",
             "beginCaptures": {
                 "1": {
                     "name": "storage.type.shnootalk"
@@ -90,6 +90,27 @@
                     "name": "entity.name.type.shnootalk"
                 }
             }
+        },
+        {
+            "comment": "Generic declaration",
+            "begin": "generic",
+            "end": "\\b([a-zA-Z_][a-zA-Z0-9_]*)\\b[^,]",
+            "beginCaptures": {
+                "0": {
+                    "name": "storage.type.shnootalk"
+                }
+            },
+            "endCaptures": {
+                "1": {
+                    "name": "entity.name.type.shnootalk"
+                }
+            },
+            "patterns": [
+                {
+                    "name": "entity.name.type.shnootalk",
+                    "match": "\\b([a-zA-Z_][a-zA-Z0-9_]*)\\b"
+                }
+            ]
         },
         {
             "comment": "Used defined enum and def",
@@ -106,6 +127,16 @@
             }
         },
         {
+            "comment": "Generic type",
+            "begin": "(:|->)",
+            "end": "(\\]\\s*[^\\],])|\\n|\\r",
+            "patterns": [
+                {
+                    "include": "#type"
+                }
+            ]
+        },
+        {
             "comment": "Type",
             "begin": "(:|->)",
             "end": "\\b([a-zA-Z_][a-zA-Z0-9_]*)\\b[^:]",
@@ -116,16 +147,7 @@
             },
             "patterns": [
                 {
-                    "match": "\\b([a-zA-Z_][a-zA-Z0-9_]*)\\b(::)",
-                    "captures": {
-                        "1": {
-                            "name": "entity.name.scope-resolution.shnootalk"
-                        }
-                    }
-                },
-                {
-                    "name": "entity.name.type.shnootalk",
-                    "match": "\\b([a-zA-Z_][a-zA-Z0-9_]*)\\b"
+                    "include": "#type"
                 }
             ]
         },
@@ -144,5 +166,23 @@
             "match": "\\b([a-zA-Z_][a-zA-Z0-9_]*)\\b"
         }
     ],
+    "repository": {
+        "type": {
+            "patterns": [
+                {
+                    "match": "\\b([a-zA-Z_][a-zA-Z0-9_]*)\\b(::)",
+                    "captures": {
+                        "1": {
+                            "name": "entity.name.scope-resolution.shnootalk"
+                        }
+                    }
+                },
+                {
+                    "name": "entity.name.type.shnootalk",
+                    "match": "\\b([a-zA-Z_][a-zA-Z0-9_]*)\\b"
+                }
+            ]
+        }
+    },
     "scopeName": "source.shnootalk"
 }
