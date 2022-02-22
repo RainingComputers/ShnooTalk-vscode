@@ -97,7 +97,7 @@
             "end": "\\b([a-zA-Z_][a-zA-Z0-9_]*)\\b[^,]",
             "beginCaptures": {
                 "0": {
-                    "name": "storage.type.shnootalk"
+                    "name": "keyword.control.shnootalk"
                 }
             },
             "endCaptures": {
@@ -129,7 +129,7 @@
         {
             "comment": "Generic type",
             "begin": "(:|->)",
-            "end": "(\\]\\s*[^\\],])|\\n|\\r",
+            "end": "(\\]\\s*[^\\],])",
             "patterns": [
                 {
                     "include": "#type"
