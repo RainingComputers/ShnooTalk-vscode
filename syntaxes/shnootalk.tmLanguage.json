@@ -129,7 +129,7 @@
         {
             "comment": "Generic type",
             "begin": "(:|->)",
-            "end": "(\\]\\s*[^\\],])",
+            "end": "(\\]\\s*[^\\],])|\\n|\\r",
             "patterns": [
                 {
                     "include": "#type"
