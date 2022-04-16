@@ -10,7 +10,7 @@
         {
             "comment": "Keywords",
             "name": "keyword.control.shnootalk",
-            "match": "\\b(use|as|from|begin|end|if|elif|else|while|do|for|loop|break|continue|return|void)\\b"
+            "match": "\\b(use|as|from|begin|end|if|elif|else|while|do|for|loop|break|continue|return|void|externC)\\b"
         },
         {
             "comment": "Conditional operators",
@@ -62,7 +62,7 @@
         {
             "comment": "'fn' keyword",
             "name": "storage.type.shnootalk",
-            "match": "\\b(fn|extfn|externC)\\b"
+            "match": "\\b(fn|extfn)\\b"
         },
         {
             "comment": "make",
