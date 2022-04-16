@@ -65,11 +65,57 @@
             "match": "\\b(fn|extfn|externC)\\b"
         },
         {
-            "comment": "Function name",
+            "comment": "make",
+            "begin": "\\b(make)\\b",
+            "end": "[,\\)]",
+            "beginCaptures": {
+                "1": {
+                    "name": "entity.name.function.shnootalk"
+                }
+            },
+            "patterns": [
+                {
+                    "include": "#type"
+                }
+            ]
+        },
+        {
+            "comment": "sizeof",
+            "begin": "\\b(sizeof)\\s*\\(",
+            "end": "\\)",
+            "beginCaptures": {
+                "1": {
+                    "name": "entity.name.function.shnootalk"
+                }
+            },
+            "patterns": [
+                {
+                    "include": "#type"
+                }
+            ]
+        },
+        {
+            "comment": "Function",
             "match": "\\b([a-zA-Z_][a-zA-Z0-9_]*)\\s*\\(",
             "captures": {
                 "1": {
                     "name": "entity.name.function.shnootalk"
+                }
+            }
+        },
+        {
+            "comment": "Generic function call",
+            "match": "\\b([a-zA-Z_][a-zA-Z0-9_]*)\\s*(\\[.*\\])\\(",
+            "captures": {
+                "1": {
+                    "name": "entity.name.function.shnootalk"
+                },
+                "2": {
+                    "patterns": [
+                        {
+                            "include": "#type"
+                        }
+                    ]
                 }
             }
         },
