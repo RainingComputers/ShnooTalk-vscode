@@ -163,7 +163,7 @@
             "match": "\\b([a-zA-Z_][a-zA-Z0-9_]*)\\s*(::)",
             "captures": {
                 "1": {
-                    "name": "entity.name.scope-resolution.shnootalk"
+                    "name": "entity.name.namespace.shnootalk"
                 }
             }
         },
@@ -214,7 +214,7 @@
                     "match": "\\b([a-zA-Z_][a-zA-Z0-9_]*)\\s*(::)",
                     "captures": {
                         "1": {
-                            "name": "entity.name.scope-resolution.shnootalk"
+                            "name": "entity.name.namespace.shnootalk"
                         }
                     }
                 },
