@@ -20,8 +20,8 @@
         {
             "comment": "String literal",
             "name": "string.quoted.double.shnootalk",
-            "begin": "\"",
-            "end": "\"",
+            "begin": "\"|'",
+            "end": "\"|'",
             "patterns": [
                 {
                     "name": "constant.character.escape.shnootalk",
@@ -45,11 +45,6 @@
             "match": "\\b([0-9]*\\.[0-9]+)\\b"
         },
         {
-            "comment": "Character literal",
-            "name": "string.quoted.single.shnootalk",
-            "match": "'\\\\?.'"
-        },
-        {
             "comment": "Integer literal",
             "name": "constant.numeric.shnootalk",
             "match": "\\b([0-9]+)\\b"
@@ -67,11 +62,11 @@
         {
             "comment": "'fn' keyword",
             "name": "storage.type.shnootalk",
-            "match": "\\b(fn|extfn)\\b"
+            "match": "\\b(fn|extfn|externC)\\b"
         },
         {
             "comment": "Function name",
-            "match": "\\b([a-zA-Z_][a-zA-Z0-9_]*)\\b\\(",
+            "match": "\\b([a-zA-Z_][a-zA-Z0-9_]*)\\s*\\(",
             "captures": {
                 "1": {
                     "name": "entity.name.function.shnootalk"
@@ -119,7 +114,7 @@
         },
         {
             "comment": "Module scope",
-            "match": "\\b([a-zA-Z_][a-zA-Z0-9_]*)\\b(::)",
+            "match": "\\b([a-zA-Z_][a-zA-Z0-9_]*)\\s*(::)",
             "captures": {
                 "1": {
                     "name": "entity.name.scope-resolution.shnootalk"
@@ -127,9 +122,9 @@
             }
         },
         {
-            "comment": "Generic type",
-            "begin": "(:|->)",
-            "end": "(\\]\\s*[^\\],])|\\n|\\r",
+            "comment": "Function return type",
+            "begin": "->",
+            "end": "{",
             "patterns": [
                 {
                     "include": "#type"
@@ -137,19 +132,19 @@
             ]
         },
         {
-            "comment": "Type",
-            "begin": "(:|->)",
-            "end": "\\b([a-zA-Z_][a-zA-Z0-9_]*)\\b[^:]",
-            "endCaptures": {
-                "1": {
-                    "name": "entity.name.type.shnootalk"
-                }
-            },
+            "comment": "Local or parameter type",
+            "begin": ":[^=]",
+            "end": "(\\]\\s*[^\\],])|(\\b([a-zA-Z_][a-zA-Z0-9_]*)(?=(\\s*(:[^:])))|\\))",
             "patterns": [
                 {
                     "include": "#type"
                 }
-            ]
+            ],
+            "endCaptures": {
+                "3": {
+                    "name": "variable.name.shnootalk"
+                }
+            }
         },
         {
             "comment": "Cast type",
@@ -170,7 +165,7 @@
         "type": {
             "patterns": [
                 {
-                    "match": "\\b([a-zA-Z_][a-zA-Z0-9_]*)\\b(::)",
+                    "match": "\\b([a-zA-Z_][a-zA-Z0-9_]*)\\s*(::)",
                     "captures": {
                         "1": {
                             "name": "entity.name.scope-resolution.shnootalk"
