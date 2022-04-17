@@ -201,17 +201,17 @@
                 {
                     "comment": "Keywords",
                     "name": "keyword.control.shnootalk",
-                    "match": "\\b(use|as|from|begin|end|if|elif|else|while|do|for|loop|break|continue|return|void|externC)\\b"
+                    "match": "\\b(use|as|from|begin|end|if|elif|else|while|do|for|loop|break|continue|return|void)\\b"
                 },
                 {
-                    "comment": "Declaration type",
+                    "comment": "Local or param or struct field declaration type",
                     "name": "storage.type.shnootalk",
                     "match": "\\b(var|const|mut)\\b"
                 },
                 {
-                    "comment": "'fn' keyword",
+                    "comment": "Function declaration keywords",
                     "name": "storage.type.shnootalk",
-                    "match": "\\b(fn|extfn)\\b"
+                    "match": "\\b(fn|extfn|externC)\\b"
                 }
             ]
         },
