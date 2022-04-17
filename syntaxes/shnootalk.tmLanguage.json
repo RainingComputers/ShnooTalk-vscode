@@ -8,11 +8,6 @@
             "match": "#[^\n\r]*"
         },
         {
-            "comment": "Conditional operators",
-            "name": "keyword.operator.shnootalk",
-            "match": "\\b(and|or|not)\\b"
-        },
-        {
             "include": "#keywords"
         },
         {
@@ -151,7 +146,7 @@
         {
             "comment": "Local type or parameter type or function return type",
             "begin": "((:)(?!\\=))|(->)",
-            "end": "((\\])(?=\\s*[^\\],]))|(\\b([a-zA-Z_][a-zA-Z0-9_]*)(?=(\\s*(:[^:])))|\\))|(\\b([a-zA-Z_][a-zA-Z0-9_]*)\\b(?=[^:,\\[\\]]))",
+            "end": "((\\]|\\*)(?=\\s*[^\\],]))|(\\b([a-zA-Z_][a-zA-Z0-9_]*)(?=(\\s*(:[^:])))|\\))|(\\b([a-zA-Z_][a-zA-Z0-9_]*)\\b(?=[^:,\\*\\[\\]]))",
             "patterns": [
                 {
                     "include": "#type"
@@ -164,7 +159,11 @@
             },
             "endCaptures": {
                 "1": {
-                    "name": "punctuation.shnootalk"
+                   "patterns": [
+                       {
+                           "include": "#punctuators"
+                       }
+                   ]
                 },
                 "3": {
                     "name": "variable.name.shnootalk"
@@ -185,6 +184,9 @@
         },
         {
             "include": "#punctuators"
+        },
+        {
+            "include": "#operators"
         },
         {
             "comment": "Symbol or identifier",
@@ -256,8 +258,57 @@
         "punctuators": {
             "patterns": [
                 {
-                    "match": "(\\(|\\)|\\[|\\]|,|\\{|\\}|::|:|->)",
+                    "match": "(\\(|\\)|\\[|\\]|,|\\{|\\}|::|:|->|;|\\.)",
                     "name": "punctuation.shnootalk"
+                },
+                {
+                    "comment": "Pointer star",
+                    "name": "storage.modifier.pointer.shnootalk",
+                    "match": "\\*"
+                }
+            ]
+        },
+        "operators": {
+            "patterns": [
+                {
+                    "comment": "Arithmetic operators",
+                    "name": "keyword.operator.arithmetic.shnootalk",
+                    "match": "(\\+|\\-|\\/|\\*|%)"
+                },
+                {
+                    "comment": "Bitwise operators",
+                    "name": "keyword.operator.bitwise.shnootalk",
+                    "match": "(\\||&|\\^|~)"
+                },
+                {
+                    "comment": "Bitwise shift operators",
+                    "name": "keyword.operator.bitwise.shift.shnootalk",
+                    "match": "(>>|<<)"
+                },
+                {
+                    "comment": "Comparison operators",
+                    "name": "keyword.operator.comparison.shnootalk",
+                    "match": "(>\\=|<\\=|>|<|!\\=|\\=\\=)"
+                },
+                {
+                    "comment": "Logical operators",
+                    "name": "keyword.operator.logical.shnootalk",
+                    "match": "(and|or|not|!)"
+                },
+                {
+                    "comment": "Assignment operators",
+                    "name": "keyword.operator.assignment",
+                    "match": "(\\=|:\\=|<-)"
+                },
+                {
+                    "comment": "Arithmetic compound assignment operators",
+                    "name": "keyword.operator.assignment.compound.arithmetic.shnootalk",
+                    "match": "(\\+\\=|\\-\\=|\\/\\=|\\*\\=|%\\=)"
+                },
+                {
+                    "comment": "Bitwise compound assignment operators",
+                    "name": "keyword.operator.assignment.compound.bitwise.shnootalk",
+                    "match": "(\\|\\=|&\\=|\\^\\=|~\\=)"
                 }
             ]
         },
