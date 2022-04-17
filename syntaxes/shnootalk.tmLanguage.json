@@ -8,61 +8,15 @@
             "match": "#[^\n\r]*"
         },
         {
-            "comment": "Keywords",
-            "name": "keyword.control.shnootalk",
-            "match": "\\b(use|as|from|begin|end|if|elif|else|while|do|for|loop|break|continue|return|void|externC)\\b"
-        },
-        {
             "comment": "Conditional operators",
             "name": "keyword.operator.shnootalk",
             "match": "\\b(and|or|not)\\b"
         },
         {
-            "comment": "String literal",
-            "name": "string.quoted.double.shnootalk",
-            "begin": "\"|'",
-            "end": "\"|'",
-            "patterns": [
-                {
-                    "name": "constant.character.escape.shnootalk",
-                    "match": "\\\\."
-                }
-            ]
+            "include": "#keywords"
         },
         {
-            "comment": "Hex literal",
-            "name": "constant.numeric.integer.hexadecimal.shnootalk",
-            "match": "\\b(0x[a-fA-f0-9]+)\\b"
-        },
-        {
-            "comment": "Bin literal",
-            "name": "constant.numeric.shnootalk",
-            "match": "\\b(0b[0-1]+)\\b"
-        },
-        {
-            "comment": "Float literal",
-            "name": "constant.numeric.shnootalk",
-            "match": "\\b([0-9]*\\.[0-9]+)\\b"
-        },
-        {
-            "comment": "Integer literal",
-            "name": "constant.numeric.shnootalk",
-            "match": "\\b([0-9]+)\\b"
-        },
-        {
-            "comment": "Boolean literal",
-            "name": "constant.language.boolean.shnootalk",
-            "match": "\\b(true|false)\\b"
-        },
-        {
-            "comment": "Declaration type",
-            "name": "storage.type.shnootalk",
-            "match": "\\b(var|const|mut)\\b"
-        },
-        {
-            "comment": "'fn' keyword",
-            "name": "storage.type.shnootalk",
-            "match": "\\b(fn|extfn)\\b"
+            "include": "#literals"
         },
         {
             "comment": "make",
@@ -180,7 +134,7 @@
         {
             "comment": "Local or parameter type",
             "begin": ":(?!\\=)",
-            "end": "(\\]\\s*[^\\],])|(\\b([a-zA-Z_][a-zA-Z0-9_]*)(?=(\\s*(:[^:])))|\\))|(\\b([a-zA-Z_][a-zA-Z0-9_]*)\\b([^:,\\[\\]]))",
+            "end": "(\\](?=\\s*[^\\],]))|(\\b([a-zA-Z_][a-zA-Z0-9_]*)(?=(\\s*(:[^:])))|\\))|(\\b([a-zA-Z_][a-zA-Z0-9_]*)\\b([^:,\\[\\]]))",
             "patterns": [
                 {
                     "include": "#type"
@@ -211,6 +165,66 @@
         }
     ],
     "repository": {
+        "literals": {
+            "patterns": [
+                {
+                    "comment": "String literal",
+                    "name": "string.quoted.double.shnootalk",
+                    "begin": "\"|'",
+                    "end": "\"|'",
+                    "patterns": [
+                        {
+                            "name": "constant.character.escape.shnootalk",
+                            "match": "\\\\."
+                        }
+                    ]
+                },
+                {
+                    "comment": "Hex literal",
+                    "name": "constant.numeric.integer.hexadecimal.shnootalk",
+                    "match": "\\b(0x[a-fA-f0-9]+)\\b"
+                },
+                {
+                    "comment": "Bin literal",
+                    "name": "constant.numeric.shnootalk",
+                    "match": "\\b(0b[0-1]+)\\b"
+                },
+                {
+                    "comment": "Float literal",
+                    "name": "constant.numeric.shnootalk",
+                    "match": "\\b([0-9]*\\.[0-9]+)\\b"
+                },
+                {
+                    "comment": "Integer literal",
+                    "name": "constant.numeric.shnootalk",
+                    "match": "\\b([0-9]+)\\b"
+                },
+                {
+                    "comment": "Boolean literal",
+                    "name": "constant.language.boolean.shnootalk",
+                    "match": "\\b(true|false)\\b"
+                }
+            ]
+        },
+        "keywords": {
+            "patterns": [
+                {
+                    "comment": "Keywords",
+                    "name": "keyword.control.shnootalk",
+                    "match": "\\b(use|as|from|begin|end|if|elif|else|while|do|for|loop|break|continue|return|void|externC)\\b"
+                },
+                {
+                    "comment": "Declaration type",
+                    "name": "storage.type.shnootalk",
+                    "match": "\\b(var|const|mut)\\b"
+                },
+                {
+                    "comment": "'fn' keyword",
+                    "name": "storage.type.shnootalk",
+                    "match": "\\b(fn|extfn)\\b"
+                }
+            ]
+        },
         "type": {
             "patterns": [
                 {
@@ -224,6 +238,12 @@
                 {
                     "name": "entity.name.type.shnootalk",
                     "match": "\\b([a-zA-Z_][a-zA-Z0-9_]*)\\b"
+                },
+                {
+                    "include": "#literals"
+                },
+                {
+                    "include": "#keywords"
                 }
             ]
         }
