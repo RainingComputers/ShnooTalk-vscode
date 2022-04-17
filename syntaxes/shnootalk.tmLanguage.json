@@ -27,6 +27,11 @@
                     "name": "entity.name.function.shnootalk"
                 }
             },
+            "endCaptures": {
+                "0": {
+                    "name": "punctuation.shnootalk"
+                }
+            },
             "patterns": [
                 {
                     "include": "#type"
@@ -35,11 +40,16 @@
         },
         {
             "comment": "sizeof",
-            "begin": "\\b(sizeof)\\s*\\(",
+            "begin": "\\b(sizeof)\\b",
             "end": "\\)",
             "beginCaptures": {
                 "1": {
                     "name": "entity.name.function.shnootalk"
+                }
+            },
+            "endCaptures": {
+                "0": {
+                    "name": "punctuation.shnootalk"
                 }
             },
             "patterns": [
@@ -50,16 +60,19 @@
         },
         {
             "comment": "Function",
-            "match": "\\b([a-zA-Z_][a-zA-Z0-9_]*)\\s*\\(",
+            "match": "\\b([a-zA-Z_][a-zA-Z0-9_]*)\\s*(\\()",
             "captures": {
                 "1": {
                     "name": "entity.name.function.shnootalk"
+                },
+                "2": {
+                    "name": "punctuation.shnootalk"
                 }
             }
         },
         {
             "comment": "Generic function call",
-            "match": "\\b([a-zA-Z_][a-zA-Z0-9_]*)\\s*(\\[.*\\])\\(",
+            "match": "\\b([a-zA-Z_][a-zA-Z0-9_]*)\\s*(\\[.*\\])\\s*(\\()",
             "captures": {
                 "1": {
                     "name": "entity.name.function.shnootalk"
@@ -70,6 +83,9 @@
                             "include": "#type"
                         }
                     ]
+                },
+                "3": {
+                    "name": "punctuation.shnootalk"
                 }
             }
         },
@@ -84,12 +100,17 @@
                 "2": {
                     "name": "entity.name.type.shnootalk"
                 }
+            },
+            "endCaptures": {
+                "0": {
+                    "name": "punctuation.shnootalk"
+                }
             }
         },
         {
             "comment": "Generic declaration",
             "begin": "generic",
-            "end": "\\b([a-zA-Z_][a-zA-Z0-9_]*)\\b[^,]",
+            "end": "\\b([a-zA-Z_][a-zA-Z0-9_]*)\\b(?!,)",
             "beginCaptures": {
                 "0": {
                     "name": "keyword.control.shnootalk"
@@ -104,6 +125,9 @@
                 {
                     "name": "entity.name.type.shnootalk",
                     "match": "\\b([a-zA-Z_][a-zA-Z0-9_]*)\\b"
+                },
+                {
+                    "include": "#punctuators"
                 }
             ]
         },
@@ -118,19 +142,30 @@
             "captures": {
                 "1": {
                     "name": "entity.name.namespace.shnootalk"
+                },
+                "2": {
+                    "name": "punctuation.shnootalk"
                 }
             }
         },
         {
             "comment": "Local type or parameter type or function return type",
-            "begin": "(:(?!\\=))|(->)",
-            "end": "(\\](?=\\s*[^\\],]))|(\\b([a-zA-Z_][a-zA-Z0-9_]*)(?=(\\s*(:[^:])))|\\))|(\\b([a-zA-Z_][a-zA-Z0-9_]*)\\b(?=[^:,\\[\\]]))",
+            "begin": "((:)(?!\\=))|(->)",
+            "end": "((\\])(?=\\s*[^\\],]))|(\\b([a-zA-Z_][a-zA-Z0-9_]*)(?=(\\s*(:[^:])))|\\))|(\\b([a-zA-Z_][a-zA-Z0-9_]*)\\b(?=[^:,\\[\\]]))",
             "patterns": [
                 {
                     "include": "#type"
                 }
             ],
+            "beginCaptures": {
+                "0": {
+                    "name": "punctuation.shnootalk"
+                }
+            },
             "endCaptures": {
+                "1": {
+                    "name": "punctuation.shnootalk"
+                },
                 "3": {
                     "name": "variable.name.shnootalk"
                 },
@@ -147,6 +182,9 @@
                     "name": "entity.name.type.shnootalk"
                 }
             }
+        },
+        {
+            "include": "#punctuators"
         },
         {
             "comment": "Symbol or identifier",
@@ -215,6 +253,14 @@
                 }
             ]
         },
+        "punctuators": {
+            "patterns": [
+                {
+                    "match": "(\\(|\\)|\\[|\\]|,|\\{|\\}|::|:|->)",
+                    "name": "punctuation.shnootalk"
+                }
+            ]
+        },
         "type": {
             "patterns": [
                 {
@@ -222,6 +268,9 @@
                     "captures": {
                         "1": {
                             "name": "entity.name.namespace.shnootalk"
+                        },
+                        "2": {
+                            "name": "punctuation.shnootalk"
                         }
                     }
                 },
@@ -234,6 +283,9 @@
                 },
                 {
                     "include": "#keywords"
+                },
+                {
+                    "include": "#punctuators"
                 }
             ]
         }
