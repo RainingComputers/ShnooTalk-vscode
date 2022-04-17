@@ -113,7 +113,11 @@
                     ]
                 },
                 "2": {
-                    "name": "entity.name.type.shnootalk"
+                    "patterns": [
+                        {
+                            "include": "#type"
+                        }
+                    ]
                 }
             },
             "endCaptures": {
@@ -141,13 +145,16 @@
             },
             "endCaptures": {
                 "1": {
-                    "name": "entity.name.type.shnootalk"
+                    "patterns": [
+                        {
+                            "include": "#type"
+                        }
+                    ]
                 }
             },
             "patterns": [
                 {
-                    "name": "entity.name.type.shnootalk",
-                    "match": "\\b([a-zA-Z_][a-zA-Z0-9_]*)\\b"
+                    "include": "#type"
                 },
                 {
                     "include": "#punctuators"
@@ -200,7 +207,11 @@
                     "name": "variable.name.shnootalk"
                 },
                 "7": {
-                    "name": "entity.name.type.shnootalk"
+                    "patterns": [
+                        {
+                            "include": "#type"
+                        }
+                    ]
                 }
             }
         },
@@ -209,7 +220,11 @@
             "match": "\\b([a-zA-Z_][a-zA-Z0-9_]*)\\s*(\\[\\]`|\\*`|`)",
             "captures": {
                 "1": {
-                    "name": "entity.name.type.shnootalk"
+                    "patterns": [
+                        {
+                            "include": "#type"
+                        }
+                    ]
                 }
             }
         },
