@@ -24,7 +24,11 @@
             },
             "endCaptures": {
                 "0": {
-                    "name": "punctuation.shnootalk"
+                    "patterns": [
+                        {
+                            "include": "#punctuators"
+                        }
+                    ]
                 }
             },
             "patterns": [
@@ -44,7 +48,11 @@
             },
             "endCaptures": {
                 "0": {
-                    "name": "punctuation.shnootalk"
+                    "patterns": [
+                        {
+                            "include": "#punctuators"
+                        }
+                    ]
                 }
             },
             "patterns": [
@@ -61,7 +69,11 @@
                     "name": "entity.name.function.shnootalk"
                 },
                 "2": {
-                    "name": "punctuation.shnootalk"
+                    "patterns": [
+                        {
+                            "include": "#punctuators"
+                        }
+                    ]
                 }
             }
         },
@@ -80,7 +92,11 @@
                     ]
                 },
                 "3": {
-                    "name": "punctuation.shnootalk"
+                    "patterns": [
+                        {
+                            "include": "#punctuators"
+                        }
+                    ]
                 }
             }
         },
@@ -98,7 +114,11 @@
             },
             "endCaptures": {
                 "0": {
-                    "name": "punctuation.shnootalk"
+                    "patterns": [
+                        {
+                            "include": "#punctuators"
+                        }
+                    ]
                 }
             }
         },
@@ -139,7 +159,11 @@
                     "name": "entity.name.namespace.shnootalk"
                 },
                 "2": {
-                    "name": "punctuation.shnootalk"
+                    "patterns": [
+                        {
+                            "include": "#punctuators"
+                        }
+                    ]
                 }
             }
         },
@@ -154,16 +178,20 @@
             ],
             "beginCaptures": {
                 "0": {
-                    "name": "punctuation.shnootalk"
+                    "patterns": [
+                        {
+                            "include": "#punctuators"
+                        }
+                    ]
                 }
             },
             "endCaptures": {
                 "1": {
-                   "patterns": [
-                       {
-                           "include": "#punctuators"
-                       }
-                   ]
+                    "patterns": [
+                        {
+                            "include": "#punctuators"
+                        }
+                    ]
                 },
                 "3": {
                     "name": "variable.name.shnootalk"
@@ -321,7 +349,11 @@
                             "name": "entity.name.namespace.shnootalk"
                         },
                         "2": {
-                            "name": "punctuation.shnootalk"
+                            "patterns": [
+                                {
+                                    "include": "#punctuators"
+                                }
+                            ]
                         }
                     }
                 },
