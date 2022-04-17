@@ -8,6 +8,9 @@
             "match": "#[^\n\r]*"
         },
         {
+            "include": "#keywords"
+        },
+        {
             "comment": "make",
             "begin": "\\b(make)\\b",
             "end": "[,\\)]",
@@ -108,7 +111,7 @@
                 "1": {
                     "patterns": [
                         {
-                            "include": "#keywords"
+                            "include": "#storage"
                         }
                     ]
                 },
@@ -138,7 +141,7 @@
                 "0": {
                     "patterns": [
                         {
-                            "include": "#keywords"
+                            "include": "#storage"
                         }
                     ]
                 }
@@ -216,13 +219,16 @@
             }
         },
         {
-            "comment": "Cast type",
+            "comment": "Type casting",
             "match": "\\b([a-zA-Z_][a-zA-Z0-9_]*)\\s*(\\[\\]`|\\*`|`)",
             "captures": {
-                "1": {
+                "0": {
                     "patterns": [
                         {
                             "include": "#type"
+                        },
+                        {
+                            "include": "#operators"
                         }
                     ]
                 }
@@ -235,7 +241,7 @@
             "include": "#operators"
         },
         {
-            "include": "#keywords"
+            "include": "#storage"
         },
         {
             "include": "#literals"
@@ -299,7 +305,11 @@
                     "comment": "Import keywords",
                     "name": "keyword.control.import.shnootalk",
                     "match": "\\b(use|as|from)\\b"
-                },
+                }
+            ]
+        },
+        "storage": {
+            "patterns": [
                 {
                     "comment": "Local or param or struct field declaration type",
                     "name": "storage.type.shnootalk",
@@ -418,6 +428,11 @@
                     "comment": "Bitwise compound assignment operators",
                     "name": "keyword.operator.assignment.compound.bitwise.shnootalk",
                     "match": "(\\|\\=|&\\=|\\^\\=|~\\=)"
+                },
+                {
+                    "comment": "Cast operator",
+                    "name": "keyword.operator.cast",
+                    "match": "(`)"
                 }
             ]
         },
@@ -447,6 +462,9 @@
                 },
                 {
                     "include": "#keywords"
+                },
+                {
+                    "include": "#storage"
                 },
                 {
                     "include": "#punctuators"
