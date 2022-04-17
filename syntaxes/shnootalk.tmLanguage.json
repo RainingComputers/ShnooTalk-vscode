@@ -122,18 +122,8 @@
             }
         },
         {
-            "comment": "Function return type",
-            "begin": "->",
-            "end": "{",
-            "patterns": [
-                {
-                    "include": "#type"
-                }
-            ]
-        },
-        {
-            "comment": "Local or parameter type",
-            "begin": ":(?!\\=)",
+            "comment": "Local type or parameter type or function return type",
+            "begin": "(:(?!\\=))|(->)",
             "end": "(\\](?=\\s*[^\\],]))|(\\b([a-zA-Z_][a-zA-Z0-9_]*)(?=(\\s*(:[^:])))|\\))|(\\b([a-zA-Z_][a-zA-Z0-9_]*)\\b(?=[^:,\\[\\]]))",
             "patterns": [
                 {
