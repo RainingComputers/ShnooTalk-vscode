@@ -13,7 +13,7 @@
             "end": "[,\\)]",
             "beginCaptures": {
                 "1": {
-                    "name": "entity.name.function.shnootalk"
+                    "name": "support.function.shnootalk"
                 }
             },
             "endCaptures": {
@@ -37,7 +37,7 @@
             "end": "\\)",
             "beginCaptures": {
                 "1": {
-                    "name": "entity.name.function.shnootalk"
+                    "name": "support.function.shnootalk"
                 }
             },
             "endCaptures": {
@@ -56,10 +56,16 @@
             ]
         },
         {
-            "comment": "Function",
+            "comment": "Function declaration or function call",
             "match": "\\b([a-zA-Z_][a-zA-Z0-9_]*)\\s*(\\()",
             "captures": {
                 "1": {
+                    "patterns": [
+                        {
+                            "name": "support.function.shnootalk",
+                            "match": "addr"
+                        }
+                    ],
                     "name": "entity.name.function.shnootalk"
                 },
                 "2": {
@@ -121,7 +127,7 @@
             }
         },
         {
-            "comment": "Generic declaration",
+            "comment": "Generic module declaration",
             "begin": "generic",
             "end": "\\b([a-zA-Z_][a-zA-Z0-9_]*)\\b(?!,)",
             "beginCaptures": {
@@ -314,8 +320,40 @@
         "punctuators": {
             "patterns": [
                 {
-                    "match": "(\\(|\\)|\\[|\\]|,|\\{|\\}|::|:|->|;|\\.)",
-                    "name": "punctuation.shnootalk"
+                    "name": "punctuation.type.shnootalk",
+                    "match": "(:)"
+                },
+                {
+                    "name": "punctuation.period.shnootalk",
+                    "match": "(\\.)"
+                },
+                {
+                    "name": "punctuation.namespace.shnootalk",
+                    "match": "(::)"
+                },
+                {
+                    "name": "punctuation.bracket.curly.shnootalk",
+                    "match": "(\\{|\\})"
+                },
+                {
+                    "name": "punctuation.bracket.parenthesis.shnootalk",
+                    "match": "(\\(|\\))"
+                },
+                {
+                    "name": "punctuation.bracket.square.shnootalk",
+                    "match": "(\\[|\\])"
+                },
+                {
+                    "name": "storage.type.return.shnootalk",
+                    "match": "->"
+                },
+                {
+                    "name": "punctuation.terminator.statement.shnootalk",
+                    "match": ";"
+                },
+                {
+                    "name": "punctuation.comma.shnootalk",
+                    "match": ","
                 },
                 {
                     "comment": "Pointer star",
