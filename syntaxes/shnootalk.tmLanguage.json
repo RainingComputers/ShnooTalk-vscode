@@ -8,12 +8,6 @@
             "match": "#[^\n\r]*"
         },
         {
-            "include": "#keywords"
-        },
-        {
-            "include": "#literals"
-        },
-        {
             "comment": "make",
             "begin": "\\b(make)\\b",
             "end": "[,\\)]",
@@ -106,7 +100,11 @@
             "end": "\\{",
             "beginCaptures": {
                 "1": {
-                    "name": "storage.type.shnootalk"
+                    "patterns": [
+                        {
+                            "include": "#keywords"
+                        }
+                    ]
                 },
                 "2": {
                     "name": "entity.name.type.shnootalk"
@@ -128,7 +126,11 @@
             "end": "\\b([a-zA-Z_][a-zA-Z0-9_]*)\\b(?!,)",
             "beginCaptures": {
                 "0": {
-                    "name": "keyword.control.shnootalk"
+                    "patterns": [
+                        {
+                            "include": "#keywords"
+                        }
+                    ]
                 }
             },
             "endCaptures": {
@@ -145,11 +147,6 @@
                     "include": "#punctuators"
                 }
             ]
-        },
-        {
-            "comment": "Used defined enum and def",
-            "name": "storage.type.shnootalk",
-            "match": "\\b(enum|def)\\b"
         },
         {
             "comment": "Module scope",
@@ -217,6 +214,12 @@
             "include": "#operators"
         },
         {
+            "include": "#keywords"
+        },
+        {
+            "include": "#literals"
+        },
+        {
             "comment": "Symbol or identifier",
             "name": "variable.name.shnootalk",
             "match": "\\b([a-zA-Z_][a-zA-Z0-9_]*)\\b"
@@ -267,9 +270,14 @@
         "keywords": {
             "patterns": [
                 {
-                    "comment": "Keywords",
-                    "name": "keyword.control.shnootalk",
-                    "match": "\\b(use|as|from|begin|end|if|elif|else|while|do|for|loop|break|continue|return|void)\\b"
+                    "comment": "Flow keywords",
+                    "name": "keyword.control.flow.shnootalk",
+                    "match": "\\b(if|elif|else|while|do|for|loop|break|continue|return|void)\\b"
+                },
+                {
+                    "comment": "Import keywords",
+                    "name": "keyword.control.import.shnootalk",
+                    "match": "\\b(use|as|from)\\b"
                 },
                 {
                     "comment": "Local or param or struct field declaration type",
@@ -278,8 +286,28 @@
                 },
                 {
                     "comment": "Function declaration keywords",
-                    "name": "storage.type.shnootalk",
+                    "name": "storage.type.function.shnootalk",
                     "match": "\\b(fn|extfn|externC)\\b"
+                },
+                {
+                    "comment": "Used defined class",
+                    "name": "storage.type.class.shnootalk",
+                    "match": "\\b(struct|class)\\b"
+                },
+                {
+                    "comment": "Used defined enum",
+                    "name": "storage.type.enum.shnootalk",
+                    "match": "\\b(enum)\\b"
+                },
+                {
+                    "comment": "Used defined def",
+                    "name": "storage.type.def.shnootalk",
+                    "match": "\\b(def)\\b"
+                },
+                {
+                    "comment": "Generic module",
+                    "name": "storage.type.generic.shnootalk",
+                    "match": "\\b(generic)\\b"
                 }
             ]
         },
