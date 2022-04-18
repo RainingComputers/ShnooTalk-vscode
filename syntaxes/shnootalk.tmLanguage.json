@@ -235,9 +235,6 @@
             }
         },
         {
-            "include": "#punctuators"
-        },
-        {
             "include": "#operators"
         },
         {
@@ -245,6 +242,9 @@
         },
         {
             "include": "#literals"
+        },
+        {
+            "include": "#punctuators"
         },
         {
             "comment": "Symbol or identifier",
