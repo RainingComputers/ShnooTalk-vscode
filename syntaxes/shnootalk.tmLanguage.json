@@ -165,20 +165,7 @@
             ]
         },
         {
-            "comment": "Module scope",
-            "match": "\\b([a-zA-Z_][a-zA-Z0-9_]*)\\s*(::)",
-            "captures": {
-                "1": {
-                    "name": "entity.name.namespace.shnootalk"
-                },
-                "2": {
-                    "patterns": [
-                        {
-                            "include": "#punctuators"
-                        }
-                    ]
-                }
-            }
+            "include": "#namespace"
         },
         {
             "comment": "Local type or parameter type or function return type",
@@ -436,9 +423,10 @@
                 }
             ]
         },
-        "type": {
+        "namespace": {
             "patterns": [
                 {
+                    "comment": "Module scope",
                     "match": "\\b([a-zA-Z_][a-zA-Z0-9_]*)\\s*(::)",
                     "captures": {
                         "1": {
@@ -452,6 +440,13 @@
                             ]
                         }
                     }
+                }
+            ]
+        },
+        "type": {
+            "patterns": [
+                {
+                    "include": "#namespace"
                 },
                 {
                     "include": "#literals"
