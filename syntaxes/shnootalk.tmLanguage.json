@@ -399,7 +399,7 @@
                 {
                     "comment": "Logical operators",
                     "name": "keyword.operator.logical.shnootalk",
-                    "match": "(and|or|not|!|in)"
+                    "match": "\\b(and|or|not|!|in)\\b"
                 },
                 {
                     "comment": "Assignment operators",
