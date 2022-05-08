@@ -8,7 +8,7 @@
         "url": "https://github.com/RainingComputers/shnootalk-vscode"
     },
     "publisher": "RainingComputers",
-    "version": "2.1.2",
+    "version": "2.1.3",
     "engines": {
         "vscode": "^1.59.0"
     },

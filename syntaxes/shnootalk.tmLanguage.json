@@ -11,46 +11,9 @@
             "include": "#keywords"
         },
         {
-            "comment": "make generic",
-            "match": "\\b(make)\\s*(\\()\\s*([a-zA-Z_][a-zA-Z0-9_]*)\\s*(\\[([a-zA-Z0-9_:\\[\\],\\s])*\\])\\s*(,)",
-            "captures": {
-                "1": {
-                    "name": "support.function.shnootalk"
-                },
-                "2": {
-                    "patterns": [
-                        {
-                            "include": "#punctuators"
-                        }
-                    ]
-                },
-                "3": {
-                    "patterns": [
-                        {
-                            "include": "#type"
-                        }
-                    ]
-                },
-                "4": {
-                    "patterns": [
-                        {
-                            "include": "#type"
-                        }
-                    ]
-                },
-                "6": {
-                    "patterns": [
-                        {
-                            "include": "#punctuators"
-                        }
-                    ]
-                }
-            }
-        },
-        {
             "comment": "make",
             "begin": "\\b(make)\\b",
-            "end": "[,\\)]",
+            "end": "\\)",
             "beginCaptures": {
                 "1": {
                     "name": "support.function.shnootalk"
@@ -66,6 +29,13 @@
                 }
             },
             "patterns": [
+                {
+                    "include": "#primitive"
+                },
+                {
+                    "match": "\\b(_?[a-z][a-zA-Z0-9_]*)\\b(?!:)",
+                    "name": "variable.name.shnootalk"
+                },
                 {
                     "include": "#type"
                 }
@@ -477,6 +447,14 @@
                             ]
                         }
                     }
+                }
+            ]
+        },
+        "primitive": {
+            "patterns": [
+                {
+                    "name": "entity.name.type.shnootalk",
+                    "match": "\\b(byte|ubyte|short|ushort|int|uint|long|ulong|float|double|char|bool)\\b"
                 }
             ]
         },
