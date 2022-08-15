@@ -458,6 +458,11 @@
                     "comment": "Cast operator",
                     "name": "keyword.operator.cast",
                     "match": "(`)"
+                },
+                {
+                    "comment": "Question mark operator",
+                    "name": "keyword.operator.question",
+                    "match": "(\\?)"
                 }
             ]
         },
